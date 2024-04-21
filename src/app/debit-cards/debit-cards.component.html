@@ -1,7 +1,7 @@
 <div class="sm:sticky top-0 sm:-z-10">
   <div class="mb-7 sm:bg-primary sm:text-white sm:px-6 sm:pb-8 sm:m-0 z-[1000]">
     <div class="hidden sm:flex pt-8 justify-end w-full">
-      <img [src]="'/assets/sm-logo.svg'" alt="logo" />
+      <img [src]="'assets/sm-logo.svg'" alt="logo" />
     </div>
 
     <div class="mb-2">Available balance</div>
@@ -15,13 +15,9 @@
           class="bg-primary-100 sm:bg-primary text-white px-3 py-2 flex items-center rounded font-semibold sm:text-[#23CEFD]"
           (click)="addNewCard()"
         >
-          <img src="/assets/add.svg" alt="add card" class="sm:hidden" />
+          <img src="assets/add.svg" alt="add card" class="sm:hidden" />
 
-          <img
-            src="/assets/sm-add.svg"
-            alt="add card"
-            class="sm:block hidden"
-          />
+          <img src="assets/sm-add.svg" alt="add card" class="sm:block hidden" />
 
           <span class="text-sm ml-2">New card</span>
         </button>
@@ -73,12 +69,12 @@
           (click)="detailsExpand = !detailsExpand"
         >
           <div class="flex items-center space-x-3">
-            <img src="/assets/card-details.svg" alt="card details" />
+            <img src="assets/card-details.svg" alt="card details" />
             <span class="text-primary">Card details</span>
           </div>
           <div>
             <img
-              src="/assets/down-arrow.svg"
+              src="assets/down-arrow.svg"
               alt="down arrow"
               class="transform-gpu transition-transform ease-smooth"
               [class.rotate-180]="detailsExpand"
@@ -99,15 +95,12 @@
           (click)="toggle()"
         >
           <div class="flex items-center space-x-3">
-            <img
-              src="/assets/recent-transaction.svg"
-              alt="recent transaction"
-            />
+            <img src="assets/recent-transaction.svg" alt="recent transaction" />
             <span class="text-primary">Recent transactions</span>
           </div>
           <div>
             <img
-              src="/assets/up-arrow.svg"
+              src="assets/up-arrow.svg"
               alt="down arrow"
               class="transform-gpu transition-transform ease-smooth"
               [class.rotate-180]="isExpanded"
