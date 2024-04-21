@@ -1,0 +1,132 @@
+<div class="sm:sticky top-0 sm:-z-10">
+  <div class="mb-7 sm:bg-primary sm:text-white sm:px-6 sm:pb-8 sm:m-0 z-[1000]">
+    <div class="hidden sm:flex pt-8 justify-end w-full">
+      <img [src]="'/assets/sm-logo.svg'" alt="logo" />
+    </div>
+
+    <div class="mb-2">Available balance</div>
+    <div class="flex items-center justify-between">
+      <div>
+        <span class="text-white px-3 py-1 bg-secondary rounded">S$</span>
+        <span class="text-2xl font-semibold ml-3">3,000</span>
+      </div>
+      <div>
+        <button
+          class="bg-primary-100 sm:bg-primary text-white px-3 py-2 flex items-center rounded font-semibold sm:text-[#23CEFD]"
+          (click)="addNewCard()"
+        >
+          <img src="/assets/add.svg" alt="add card" class="sm:hidden" />
+
+          <img
+            src="/assets/sm-add.svg"
+            alt="add card"
+            class="sm:block hidden"
+          />
+
+          <span class="text-sm ml-2">New card</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4 sm:bg-primary sm:px-6 sm:m-0">
+    <mat-tab-group>
+      <mat-tab label="My debit cards"> </mat-tab>
+      <mat-tab label="All Company cards" disabled="">
+        All Company cards</mat-tab
+      >
+    </mat-tab-group>
+  </div>
+  <div class="hidden sm:block px-6 bg-primary">
+    <app-carousel #carouselItem>
+      <app-carousel-item *ngFor="let item of cardService.cardList">
+        <app-card [card]="item"></app-card>
+      </app-carousel-item>
+    </app-carousel>
+  </div>
+</div>
+<div
+  class="rounded-lg px-10 py-8 shadow-box sm:p-0 sm:z-max sm:bg-white sm:rounded-3xl sm:rounded-b-none"
+>
+  <div class="grid grid-cols-2 gap-x-12 sm:block">
+    <div class="sm:hidden">
+      <div>
+        <app-carousel #carouselItem>
+          <app-carousel-item *ngFor="let item of cardService.cardList">
+            <app-card [card]="item"></app-card>
+          </app-carousel-item>
+        </app-carousel>
+        <app-card-actions
+          [card]="cardService.cardList[carouselItem.activeIndex || 0]"
+        ></app-card-actions>
+      </div>
+    </div>
+    <div class="hidden sm:block">
+      <app-card-actions
+        [card]="cardService.cardList[carouselItem.activeIndex || 0]"
+      ></app-card-actions>
+    </div>
+    <div class="mt-7 sm:px-6 sm:pb-20">
+      <div class="mb-7">
+        <button
+          class="bg-[#F5F9FF] rounded-lg p-6 flex items-center justify-between w-full"
+          (click)="detailsExpand = !detailsExpand"
+        >
+          <div class="flex items-center space-x-3">
+            <img src="/assets/card-details.svg" alt="card details" />
+            <span class="text-primary">Card details</span>
+          </div>
+          <div>
+            <img
+              src="/assets/down-arrow.svg"
+              alt="down arrow"
+              class="transform-gpu transition-transform ease-smooth"
+              [class.rotate-180]="detailsExpand"
+            />
+          </div>
+        </button>
+        <div
+          [@expandCollapse]="detailsExpand ? 'expanded' : 'collapsed'"
+          class="expand-container px-6 text-center"
+        >
+          <p class="p-4">Card details here</p>
+        </div>
+      </div>
+
+      <button class="border block border-[#F0F0F0] rounded-lg w-full">
+        <div
+          class="bg-[#F5F9FF] rounded-lg p-6 flex items-center justify-between"
+          (click)="toggle()"
+        >
+          <div class="flex items-center space-x-3">
+            <img
+              src="/assets/recent-transaction.svg"
+              alt="recent transaction"
+            />
+            <span class="text-primary">Recent transactions</span>
+          </div>
+          <div>
+            <img
+              src="/assets/up-arrow.svg"
+              alt="down arrow"
+              class="transform-gpu transition-transform ease-smooth"
+              [class.rotate-180]="isExpanded"
+            />
+          </div>
+        </div>
+
+        <div
+          [@expandCollapse]="isExpanded ? 'expanded' : 'collapsed'"
+          class="expand-container"
+        >
+          <app-transactions></app-transactions>
+          <button
+            class="w-full text-xs border border-[#DDFFEC] border-t-0 text-secondary font-semibold bg-[#EDFFF5] rounded-b-lg py-4 text-center"
+          >
+            View all card transactions
+          </button>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

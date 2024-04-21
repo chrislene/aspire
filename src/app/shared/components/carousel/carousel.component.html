@@ -1,0 +1,13 @@
+<div class="block overflow-hidden relative sm:pb-8">
+  <div #carousel_container class="flex w-full transition-all">
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="_carouselItems.length" class="p-2 text-center">
+    <button
+      *ngFor="let item of _carouselItems; let i = index"
+      (click)="changeSlide(i)"
+      class="carousel-dot inline-block my-0 rounded-full cursor-pointer bg-secondary bg-opacity-30"
+      [class.active]="i === activeIndex"
+    ></button>
+  </div>
+</div>

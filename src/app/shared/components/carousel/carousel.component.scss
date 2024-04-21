@@ -1,0 +1,10 @@
+.carousel-dot {
+  margin: 0 3px;
+  height: 8px;
+  width: 8px;
+}
+
+.active {
+  width: 16px;
+  @apply bg-opacity-100;
+}

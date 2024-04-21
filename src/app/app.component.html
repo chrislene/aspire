@@ -1,0 +1,56 @@
+<!-- <mat-slide-toggle [hideIcon]="true">Toggle me!</mat-slide-toggle>
+
+<div>
+  <span class="text-primary">Primary Color</span>
+</div>
+
+<div>
+  <span class="text-secondary">Secondary Color</span>
+</div> -->
+
+<div class="grid grid-cols-8 sm:block">
+  <div class="col-span-2 bg-primary h-screen p-12 sm:hidden">
+    <div><img src="/assets/logo.svg" alt="aspire" class="mb-5" /></div>
+    <div class="text-sm text-white opacity-15 mb-20">
+      Trusted way of banking for 3,000+ SMEs and startups in Singapore
+    </div>
+
+    <ng-container *ngFor="let nav of sideNavList">
+      <div class="flex pb-16 -mb-1 cursor-pointer">
+        <div><img [src]="nav.icon" alt="nav.name" /></div>
+        <div
+          class="text-white ml-4"
+          [ngClass]="{
+            '
+          !text-secondary': nav.active
+          }"
+        >
+          {{ nav.name }}
+        </div>
+      </div></ng-container
+    >
+  </div>
+
+  <div class="col-span-6 p-16 h-screen overflow-y-scroll sm:p-0">
+    <router-outlet></router-outlet>
+  </div>
+  <div
+    class="hidden sm:flex justify-between items-center absolute bottom-0 bg-white w-full px-8 py-2 top-shadow"
+  >
+    <div
+      *ngFor="let nav of sideNavList"
+      class="w-full flex flex-col items-center"
+    >
+      <div><img [src]="nav.smIcon" alt="nav.name" /></div>
+      <div
+        class="text-[9px] text-[#DDDDDD]"
+        [ngClass]="{
+          '
+      !text-secondary': nav.active
+        }"
+      >
+        {{ nav.name }}
+      </div>
+    </div>
+  </div>
+</div>
