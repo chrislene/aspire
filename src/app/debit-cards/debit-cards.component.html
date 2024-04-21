@@ -47,13 +47,13 @@
   <div class="grid grid-cols-2 gap-x-12 sm:block">
     <div class="sm:hidden">
       <div>
-        <app-carousel #carouselItem>
+        <app-carousel #carouselItemSm>
           <app-carousel-item *ngFor="let item of cardService.cardList">
             <app-card [card]="item"></app-card>
           </app-carousel-item>
         </app-carousel>
         <app-card-actions
-          [card]="cardService.cardList[carouselItem.activeIndex || 0]"
+          [card]="cardService.cardList[carouselItemSm.activeIndex || 0]"
         ></app-card-actions>
       </div>
     </div>
