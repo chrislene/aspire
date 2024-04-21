@@ -1,4 +1,4 @@
-<div class="">
+<div class="sm:sticky top-0">
   <div class="mb-7 sm:bg-primary sm:text-white sm:px-6 sm:pb-8 sm:m-0">
     <div class="hidden sm:flex pt-8 justify-end w-full">
       <img [src]="'assets/sm-logo.svg'" alt="logo" />
@@ -103,7 +103,7 @@
               src="assets/up-arrow.svg"
               alt="down arrow"
               class="transform-gpu transition-transform ease-smooth"
-              [class.rotate-180]="isExpanded"
+              [class.rotate-180]="!isExpanded"
             />
           </div>
         </div>
