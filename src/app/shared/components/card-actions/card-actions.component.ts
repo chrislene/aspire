@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './card-actions.component.html',
-  styleUrl: './card-actions.component.scss',
 })
 export class CardActionsComponent {
   @Input() card!: Cards;

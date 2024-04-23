@@ -24,7 +24,6 @@ import { generateExpiryDate, getRandomNumber } from '../../utils/cards.util';
     MatButtonModule,
   ],
   templateUrl: './add-card.component.html',
-  styleUrl: './add-card.component.scss',
 })
 export class AddCardComponent {
   public cardName = new FormControl<string>('', Validators.required);
