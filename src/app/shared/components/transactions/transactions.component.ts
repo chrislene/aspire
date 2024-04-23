@@ -15,7 +15,6 @@ import {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './transactions.component.html',
-  styleUrl: './transactions.component.scss',
 })
 export class TransactionsComponent {
   public transaction: Transactions[] = TRANSACTION;
